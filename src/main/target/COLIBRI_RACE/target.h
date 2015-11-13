@@ -18,6 +18,8 @@
 #pragma once
 
 #define TARGET_BOARD_IDENTIFIER "CLBR"
+#define BST_DEVICE_NAME "COLIBRI RACE"
+#define BST_DEVICE_NAME_LENGTH 12
 
 #define LED0_GPIO   GPIOC
 #define LED0_PIN    Pin_15
@@ -68,9 +70,11 @@
 #define BARO
 #define USE_BARO_MS5611
 
+// External I2C MAG
 #define MAG
 #define USE_MAG_HMC5883
 #define USE_MAG_AK8975
+//#define MAG_AK8975_ALIGN CW0_DEG_FLIP
 
 #define BEEPER
 #define LED0
@@ -117,6 +121,11 @@
 #define I2C2_SDA_PIN         GPIO_Pin_10
 #define I2C2_SDA_PIN_SOURCE  GPIO_PinSource10
 #define I2C2_SDA_CLK_SOURCE  RCC_AHBPeriph_GPIOA
+
+#define USE_BST
+#define BST_DEVICE (BSTDEV_1)
+/* Configure the CRC peripheral to use the polynomial x8 + x7 + x6 + x4 + x2 + 1 */
+#define BST_CRC_POLYNOM			 0xD5
 
 #define USE_ADC
 
