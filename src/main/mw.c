@@ -911,7 +911,6 @@ void loop(void)
     bstMasterWriteLoop();
 #endif
 
-
 #ifdef LED_STRIP
     if (feature(FEATURE_LED_STRIP)) {
         updateLedStrip();

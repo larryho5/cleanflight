@@ -312,7 +312,6 @@ void init(void)
     bstInit(BST_DEVICE);
 #endif
 
-
 #ifdef USE_SPI
     spiInit(SPI1);
     spiInit(SPI2);
