@@ -592,13 +592,57 @@ static void resetConf(void)
 
     // alternative defaults settings for COLIBRI RACE targets
 #if defined(COLIBRI_RACE)
-    masterConfig.escAndServoConfig.minthrottle = 1025;
+    currentProfile->pidProfile.P8[ROLL] = 45;     // new PID with preliminary defaults test carefully
+    currentProfile->pidProfile.I8[ROLL] = 75;
+    currentProfile->pidProfile.D8[ROLL] = 18;
+    currentProfile->pidProfile.P8[PITCH] = 92;
+    currentProfile->pidProfile.I8[PITCH] = 85;
+    currentProfile->pidProfile.D8[PITCH] = 34;
+    currentProfile->pidProfile.P8[YAW] = 120;
+    currentProfile->pidProfile.I8[YAW] = 60;
+    currentProfile->pidProfile.D8[YAW] = 0;
+
+    currentControlRateProfile->rcExpo8 = 65;
+    currentControlRateProfile->rcYawExpo8 = 50;
+    currentControlRateProfile->rates[FD_ROLL] = 80;
+    currentControlRateProfile->rates[FD_PITCH] = 80;
+    currentControlRateProfile->rates[FD_YAW] = 120;
+
+    currentControlRateProfile->dynThrPID = 5;
+    currentControlRateProfile->tpa_breakpoint = 1650;
+
+    masterConfig.escAndServoConfig.minthrottle = 1037;
     masterConfig.escAndServoConfig.maxthrottle = 1980;
+    masterConfig.escAndServoConfig.mincommand = 1000;
+    masterConfig.escAndServoConfig.servoCenterPulse = 1500;
     masterConfig.batteryConfig.vbatmaxcellvoltage = 45;
     masterConfig.batteryConfig.vbatmincellvoltage = 30;
 
+    masterConfig.flight3DConfig.deadband3d_low = 1460;
+    masterConfig.flight3DConfig.deadband3d_high = 1540;
+    masterConfig.flight3DConfig.neutral3d = 1500;
+    masterConfig.flight3DConfig.deadband3d_throttle = 10;
+
+    masterConfig.batteryConfig.vbatPidCompensation = 1;
+
+    masterConfig.rxConfig.superExpoFactor = 40;
+    masterConfig.rxConfig.superExpoFactorYaw = 40;
+    masterConfig.rxConfig.superExpoYawMode = 1;
+
+    masterConfig.failsafeConfig.failsafe_procedure = 1;
+    masterConfig.failsafeConfig.failsafe_throttle_low_delay = 10;
+
+    masterConfig.gyro_sync_denom = 3;
+    masterConfig.pid_process_denom = 2;
+
+    masterConfig.rcControlsConfig.deadband = 5;
+    masterConfig.rcControlsConfig.yaw_deadband = 5;
+
+    masterConfig.failsafeConfig.failsafe_delay = 30;
+
     featureSet(FEATURE_VBAT);
     featureSet(FEATURE_FAILSAFE);
+    featureSet(FEATURE_LED_STRIP);
 #endif
 
 #ifdef SPRACINGF3EVO
