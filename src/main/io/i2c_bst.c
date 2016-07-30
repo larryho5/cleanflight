@@ -1105,9 +1105,9 @@ static bool bstSlaveProcessWriteCommand(uint8_t bstWriteCommand)
 	            currentControlRateProfile->thrMid8 = bstRead8();
 	            currentControlRateProfile->thrExpo8 = bstRead8();
 	            currentControlRateProfile->tpa_breakpoint = bstRead16();
-	            if (bstReadDataSize() >= 11) {
+//	            if (bstReadDataSize() >= 11) {
 	                currentControlRateProfile->rcYawExpo8 = bstRead8();
-	            }
+//	            }
 	        } else {
 	        	ret = BST_FAILED;
 	        }
