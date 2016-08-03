@@ -609,10 +609,69 @@ static void resetConf(void)
 
     // alternative defaults settings for COLIBRI RACE targets
 #if defined(COLIBRI_RACE)
-    masterConfig.escAndServoConfig.minthrottle = 1025;
+    currentProfile->pidProfile.P8[ROLL] = 51;     // new PID with preliminary defaults test carefully
+    currentProfile->pidProfile.I8[ROLL] = 48;
+    currentProfile->pidProfile.D8[ROLL] = 18;
+    currentProfile->pidProfile.P8[PITCH] = 99;
+    currentProfile->pidProfile.I8[PITCH] = 59;
+    currentProfile->pidProfile.D8[PITCH] = 22;
+    currentProfile->pidProfile.P8[YAW] = 129;
+    currentProfile->pidProfile.I8[YAW] = 50;
+    currentProfile->pidProfile.D8[YAW] = 20;
+
+    currentControlRateProfile->rcExpo8 = 15;
+    currentControlRateProfile->rcYawExpo8 = 15;
+    currentControlRateProfile->rates[FD_ROLL] = 86;
+    currentControlRateProfile->rates[FD_PITCH] = 86;
+    currentControlRateProfile->rates[FD_YAW] = 80;
+
+    currentControlRateProfile->dynThrPID = 23;
+    currentControlRateProfile->tpa_breakpoint = 1650;
+
+    masterConfig.escAndServoConfig.minthrottle = 1030;
     masterConfig.escAndServoConfig.maxthrottle = 1980;
+    masterConfig.escAndServoConfig.mincommand = 1000;
+    masterConfig.escAndServoConfig.servoCenterPulse = 1500;
     masterConfig.batteryConfig.vbatmaxcellvoltage = 45;
     masterConfig.batteryConfig.vbatmincellvoltage = 30;
+
+    masterConfig.flight3DConfig.deadband3d_low = 1460;
+    masterConfig.flight3DConfig.deadband3d_high = 1540;
+    masterConfig.flight3DConfig.neutral3d = 1500;
+    masterConfig.flight3DConfig.deadband3d_throttle = 15;
+
+    masterConfig.batteryConfig.vbatPidCompensation = 1;
+
+    //masterConfig.rxConfig.superExpoFactor = 40;
+    //masterConfig.rxConfig.superExpoFactorYaw = 40;
+    //masterConfig.rxConfig.superExpoYawMode = 1;
+
+    masterConfig.failsafeConfig.failsafe_procedure = 1;
+    masterConfig.failsafeConfig.failsafe_throttle_low_delay = 10;
+
+    masterConfig.gyro_sync_denom = 1;
+    masterConfig.pid_process_denom = 3;
+    masterConfig.blackbox_rate_num = 1;
+    masterConfig.blackbox_rate_denom = 1;
+
+    masterConfig.rcControlsConfig.deadband = 5;
+    masterConfig.rcControlsConfig.yaw_deadband = 5;
+
+    masterConfig.failsafeConfig.failsafe_delay = 10;
+
+    modeActivationCondition_t *mac = &masterConfig.modeActivationConditions[0];
+    mac->modeId = 12;
+    mac->auxChannelIndex = 3;
+    mac->range.startStep = 1200;
+    mac->range.endStep = 2000;
+
+    featureSet(FEATURE_RX_PPM);
+    featureSet(FEATURE_VBAT);
+    featureSet(FEATURE_FAILSAFE);
+    featureSet(FEATURE_LED_STRIP);
+    featureSet(FEATURE_ONESHOT125);
+    featureSet(FEATURE_AIRMODE);
+    featureSet(FEATURE_SUPEREXPO_RATES);
 #endif
 
     // alternative defaults settings for ALIENFLIGHTF1 and ALIENFLIGHTF3 targets
