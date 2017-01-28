@@ -248,7 +248,7 @@ bool sbusInit(const rxConfig_t *rxConfig, rxRuntimeConfig_t *rxRuntimeConfig)
     bool portShared = false;
 #endif
 
-    portOptions_t options = (rxConfig->sbus_inversion) ? (SBUS_PORT_OPTIONS | SERIAL_INVERTED) : SBUS_PORT_OPTIONS;
+    portOptions_t options = (rxConfig->sbus_inversion) ? (SBUS_PORT_OPTIONS) : SBUS_PORT_OPTIONS;
     serialPort_t *sBusPort = openSerialPort(portConfig->identifier, FUNCTION_RX_SERIAL, sbusDataReceive, SBUS_BAUDRATE, portShared ? MODE_RXTX : MODE_RX, options);
 
 #ifdef TELEMETRY
