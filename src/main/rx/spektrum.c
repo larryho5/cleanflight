@@ -210,7 +210,7 @@ void spektrumBind(rxConfig_t *rxConfig)
         return;
     }
 
-    LED1_ON;
+    //LED1_ON;
 
     BindPin = IOGetByTag(IO_TAG(BIND_PIN));
     IOInit(BindPin, OWNER_RX_BIND, 0);
@@ -221,18 +221,18 @@ void spektrumBind(rxConfig_t *rxConfig)
 
     // Bind window is around 20-140ms after powerup
     delay(60);
-    LED1_OFF;
+    //LED1_OFF;
 
     for (i = 0; i < rxConfig->spektrum_sat_bind; i++) {
 
         LED0_OFF;
-        LED2_OFF;
+        //LED2_OFF;
         // RX line, drive low for 120us
         IOWrite(BindPin, false);
         delayMicroseconds(120);
 
         LED0_ON;
-        LED2_ON;
+        //LED2_ON;
         // RX line, drive high for 120us
         IOWrite(BindPin, true);
         delayMicroseconds(120);

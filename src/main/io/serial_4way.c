@@ -48,7 +48,7 @@
 #define Bit_RESET GPIO_PIN_RESET
 #endif
 
-#define USE_TXRX_LED
+//#define USE_TXRX_LED
 
 #ifdef  USE_TXRX_LED
 #define RX_LED_OFF LED0_OFF

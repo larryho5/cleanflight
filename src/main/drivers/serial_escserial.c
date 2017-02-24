@@ -916,7 +916,7 @@ void escEnablePassthrough(serialPort_t *escPassthroughPort, uint16_t output, uin
     bool exitEsc = false;
     uint8_t motor_output = 0;
     LED0_OFF;
-    LED1_OFF;
+    //LED1_OFF;
     //StopPwmAllMotors();
     pwmDisableMotors();
     passPort = escPassthroughPort;
@@ -970,7 +970,7 @@ void escEnablePassthrough(serialPort_t *escPassthroughPort, uint16_t output, uin
             }
         }
         if (serialRxBytesWaiting(escPassthroughPort)) {
-            LED1_ON;
+            //LED1_ON;
             while(serialRxBytesWaiting(escPassthroughPort))
             {
                 ch = serialRead(escPassthroughPort);
@@ -991,7 +991,7 @@ void escEnablePassthrough(serialPort_t *escPassthroughPort, uint16_t output, uin
                 }
                 serialWrite(escPort, ch);
             }
-            LED1_OFF;
+            //LED1_OFF;
         }
         if(mode != PROTOCOL_CASTLE){
             delay(5);

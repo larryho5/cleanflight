@@ -91,7 +91,7 @@ void hard_fault_handler_c(unsigned long *hardfault_args)
 #else
 void HardFault_Handler(void)
 {
-    LED2_ON;
+    //LED2_ON;
 
     // fall out of the sky
     uint8_t requiredStateForMotors = SYSTEM_STATE_CONFIG_LOADED | SYSTEM_STATE_MOTORS_READY;
@@ -106,7 +106,7 @@ void HardFault_Handler(void)
     }
 #endif
 
-    LED1_OFF;
+    //LED1_OFF;
     LED0_OFF;
 
     while (1) {

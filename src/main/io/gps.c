@@ -400,7 +400,7 @@ static void updateGpsIndicator(timeUs_t currentTimeUs)
     static uint32_t GPSLEDTime;
     if ((int32_t)(currentTimeUs - GPSLEDTime) >= 0 && (GPS_numSat >= 5)) {
         GPSLEDTime = currentTimeUs + 150000;
-        LED1_TOGGLE;
+        //LED1_TOGGLE;
     }
 }
 

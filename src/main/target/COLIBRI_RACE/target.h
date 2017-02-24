@@ -25,8 +25,10 @@
 #define CONFIG_FASTLOOP_PREFERRED_ACC ACC_DEFAULT
 
 #define LED0                    PC15
-#define LED1                    PC14
-#define LED2                    PC13
+#define LED1                    PC13
+#define LED2                    PC14
+//#define LED1                    PB10
+//#define LED2                    PB11
 
 #define BEEPER                  PB13
 #define BEEPER_INVERTED
@@ -79,8 +81,8 @@
 #define USE_VCP
 #define USE_UART1
 #define USE_UART2
-#define USE_UART3
-#define SERIAL_PORT_COUNT       4
+//#define USE_UART3
+#define SERIAL_PORT_COUNT       3
 
 #define USE_ESCSERIAL
 #define ESCSERIAL_TIMER_TX_HARDWARE 0 // PWM 1
@@ -91,8 +93,8 @@
 #define UART2_TX_PIN            PA14
 #define UART2_RX_PIN            PA15
 
-#define UART3_TX_PIN            PB10
-#define UART3_RX_PIN            PB11
+//#define UART3_TX_PIN            PB10
+//#define UART3_RX_PIN            PB11
 
 #define USE_I2C
 #define I2C_DEVICE (I2CDEV_2)

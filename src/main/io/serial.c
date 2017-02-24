@@ -496,7 +496,7 @@ void serialPassthrough(serialPort_t *left, serialPort_t *right, serialConsumer
         rightC = &nopConsumer;
 
     LED0_OFF;
-    LED1_OFF;
+    //LED1_OFF;
 
     // Either port might be open in a mode other than MODE_RXTX. We rely on
     // serialRxBytesWaiting() to do the right thing for a TX only port. No
